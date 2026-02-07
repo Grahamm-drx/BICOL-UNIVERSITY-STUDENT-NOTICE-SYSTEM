@@ -1,0 +1,359 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.ibu-logo {
+  width: 18rem;          /* ~ w-72 */
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 0rem;
+  opacity: 0.9;
+}
+
+body {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  min-height: 100vh;
+  background: #3baff3;
+  color: hsl(210, 40%, 20%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main Container */
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+}
+
+/* Floating Blobs Background */
+.blobs {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.4;
+}
+
+.blob {
+  position: absolute;
+  opacity: 0.15;
+  animation: blobFloat 25s infinite ease-in-out;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+/* Decorative Particles */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleFloat 8s infinite linear;
+}
+
+.particle-1 {
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.particle-2 {
+  left: 15%;
+  animation-delay: 1s;
+}
+
+.particle-3 {
+  left: 25%;
+  animation-delay: 2s;
+}
+
+.particle-4 {
+  left: 35%;
+  animation-delay: 3s;
+}
+
+.particle-5 {
+  left: 45%;
+  animation-delay: 4s;
+}
+
+.particle-6 {
+  left: 55%;
+  animation-delay: 5s;
+}
+
+.particle-7 {
+  left: 65%;
+  animation-delay: 6s;
+}
+
+.particle-8 {
+  left: 75%;
+  animation-delay: 7s;
+}
+
+.particle-9 {
+  left: 85%;
+  animation-delay: 0.5s;
+}
+
+.particle-10 {
+  left: 95%;
+  animation-delay: 1.5s;
+}
+
+/* Main Card */
+.card {
+  width: 100%;
+  max-width: 42rem;
+  background: hsl(0, 0%, 100%);
+  border-radius: 2rem;
+  padding: 3rem;
+  box-shadow:
+    0 20px 60px -15px rgba(0, 0, 0, 0.1),
+    0 10px 30px -10px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 1;
+  animation: fade-in-up 0.6s ease-out forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  gap: 0.75rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #2c5f7c;
+}
+
+.logo-i {
+  color: #ff8c42;
+}
+
+.logo-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.logo-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #2c5f7c;
+}
+
+.logo-subtitle {
+  font-size: 0.75rem;
+  color: #5a6c7d;
+}
+
+.header h1 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.header p {
+  margin-top: 0rem;
+  color: #5a6c7d;
+  max-width: 28rem;
+}
+
+/* Role Cards Grid */
+.roles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Role Card Styles */
+.role-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease-out;
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.15);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.role-card:hover {
+  transform: scale(1.05) translateY(-0.25rem);
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.2);
+}
+
+.role-card:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Student Card */
+.role-student {
+  background: #3baff3;
+}
+
+/* Faculty Card */
+.role-faculty {
+  background: #ff8c42;
+}
+
+/* Admin Card */
+.role-admin {
+  background: #3baff3;
+}
+
+/* Icon Wrapper */
+.icon-wrapper {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  transition: transform 0.3s ease-out;
+}
+
+.role-card:hover .icon-wrapper {
+  transform: scale(1.1);
+}
+
+/* SVG Icons */
+.icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Card Text */
+.role-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.role-description {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.footer p {
+  font-size: 0.875rem;
+  color: #5a6c7d;
+}
+
+/* Animations */
+@keyframes blobFloat {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) scale(1);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  33% {
+    transform: translateY(-120px) translateX(50px) scale(1.2);
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  66% {
+    transform: translateY(80px) translateX(-30px) scale(0.8);
+    border-radius: 70% 30% 40% 60% / 30% 70% 60% 40%;
+  }
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card {
+    padding: 2rem 1.5rem;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .roles {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) {
+  .header h1 {
+    font-size: 1.875rem;
+  }
+}
