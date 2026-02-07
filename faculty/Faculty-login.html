@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faculty Login - iBU</title>
+    <link rel="icon" type="image/png" href="../assets/img/Bicol_University.png" />
+    <link rel="stylesheet" href="../assets/css/student-faculty-administrator-style.css" />
+  </head>
+    <style>
+    .icon-wrapper {
+        background: rgba(255, 140, 66, 0.1);
+        box-shadow: 0 4px 12px rgba(255, 140, 66, 0.2); 
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .icon-wrapper .icon {
+        stroke: #ff8c42 !important; 
+        stroke-width: 2.5 !important; 
+    }
+
+    .icon-wrapper:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(255, 140, 66, 0.4);
+    }
+    </style>
+  <body>
+    <!-- Floating Blobs Background -->
+    <div class="blobs">
+      <div class="blob" style="top:77%;left:9%;width:199px;height:165px;background:white;animation-delay:1s;"></div>
+      <div class="blob" style="top:46%;right:14%;width:191px;height:202px;background:rgba(255,255,255,0.9);animation-delay:3s;"></div>
+      <div class="blob" style="bottom:6%;left:63%;width:195px;height:150px;background:rgba(255,255,255,0.85);animation-delay:1s;"></div>
+      <div class="blob" style="top:31%;right:28%;width:160px;height:229px;background:rgba(255,255,255,0.95);animation-delay:0s;"></div>
+      <div class="blob" style="bottom:77%;right:42%;width:159px;height:205px;background:white;animation-delay:9s;"></div>
+      <div class="blob" style="top:65%;left:27%;width:237px;height:194px;background:rgba(255,255,255,0.9);animation-delay:1s;"></div>
+      <div class="blob" style="top:36%;left:54%;width:228px;height:222px;background:rgba(255,255,255,0.88);animation-delay:8s;"></div>
+      <div class="blob" style="bottom:85%;right:53%;width:184px;height:180px;background:white;animation-delay:5s;"></div>
+      <div class="blob" style="top:42%;left:30%;width:181px;height:158px;background:rgba(255,255,255,0.92);animation-delay:0s;"></div>
+      <div class="blob" style="bottom:40%;left:82%;width:214px;height:200px;background:rgba(255,255,255,0.87);animation-delay:9s;"></div>
+
+      <!-- Particles -->
+      <div class="particle particle-1"></div>
+      <div class="particle particle-2"></div>
+      <div class="particle particle-3"></div>
+      <div class="particle particle-4"></div>
+      <div class="particle particle-5"></div>
+      <div class="particle particle-6"></div>
+      <div class="particle particle-7"></div>
+      <div class="particle particle-8"></div>
+      <div class="particle particle-9"></div>
+      <div class="particle particle-10"></div>
+    </div>
+
+    <div class="container">
+      <div class="glow"></div>
+      <div class="card">
+
+        <a href="../index.html" class="back-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          Back to Home
+        </a>
+
+        <div class="header">
+          <div class="icon-wrapper">
+            <svg class="icon icon-faculty" viewBox="0 0 24 24">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+
+          <img src="../assets/img/Student_Notice_System.png"class="ibu-logo" alt="Logo"/>
+
+          <h1>Faculty Login</h1>
+          <p class="subtitle">Access faculty notice dashboard</p>
+        </div>
+
+        <form class="form" onsubmit="handleFacultyLogin(event)">
+          <div class="form-group">
+            <label for="facultyId">Faculty ID</label>
+            <div class="input-wrapper">
+              <svg class="input-icon" viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <input type="text" id="facultyId" placeholder="2024-01-09142" required/>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-wrapper">
+              <svg class="input-icon" viewBox="0 0 24 24">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+              <input type="password" id="password" name="password" placeholder="Enter your password" required minlength="6"/>
+              <button type="button" class="password-toggle" onclick="togglePassword()">
+                <svg id="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn">Sign In</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const password = document.getElementById("password");
+            const eye = document.getElementById("eye-icon");
+
+            if (password.type === "password") {
+                password.type = "text";
+                eye.innerHTML ='<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>';
+            } else {
+                password.type = "password";
+                eye.innerHTML ='<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+            }
+        }
+
+        function handleFacultyLogin(event) {
+            event.preventDefault();
+            const facultyId = document.getElementById("facultyId").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            if (!facultyId || !password) {
+                alert("Please fill in all fields");
+                return;
+            }
+
+         window.location.href = "faculty-dashboard.html";
+    }
+    </script>
+  </body>
+</html>
